@@ -10,15 +10,18 @@ public class Config {
     public static final Boolean BROWSER_OPEN = true;
 
     protected static FileInputStream fileInputStream;
-    protected static Properties PROPERTIES;
+    protected static FileInputStream fileInputStreamData;
+    protected static Properties CONFIG_PROPERTIES;
+    protected static Properties DATA_PROPERTIES;
 
     static {
         try {
             fileInputStream = new FileInputStream("src/main/resources/config.properties");
-         //   fileInputStream = new FileInputStream("src/main/resources/data.properties");
-            PROPERTIES = new Properties();
-            PROPERTIES.load(fileInputStream);
-
+            CONFIG_PROPERTIES = new Properties();
+            CONFIG_PROPERTIES.load(fileInputStream);
+            fileInputStreamData = new FileInputStream("src/main/resources/data.properties");
+            DATA_PROPERTIES = new Properties();
+            DATA_PROPERTIES.load(fileInputStreamData);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -31,8 +34,11 @@ public class Config {
         }
     }
 
-    public static String getProperty(String key) {
-        return PROPERTIES.getProperty(key);
+    public static String getConfigProperties(String key) {
+        return CONFIG_PROPERTIES.getProperty(key);
+    }
+    public static String getDataProperty(String key) {
+        return DATA_PROPERTIES.getProperty(key);
     }
 }
 

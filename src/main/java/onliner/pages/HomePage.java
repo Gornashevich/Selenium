@@ -12,7 +12,7 @@ public class HomePage extends BasePage {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    @FindBy(xpath = "//span[contains(@class, 'b-main-navigation__text') and text() ='Каталог']")
+    @FindBy(xpath = "//*[contains(@class, 'b-main-navigation__item')][1]/a[2]")
     private WebElement catalog;
 
     public HomePage(WebDriver driver) {

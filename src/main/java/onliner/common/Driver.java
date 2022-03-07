@@ -16,11 +16,11 @@ public class Driver {
         WebDriver driver = null;
         switch (BROWSER) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", Config.getProperty("chromedriver"));
+                System.setProperty("webdriver.chrome.driver", Config.getConfigProperties("chromedriver"));
                 driver = new ChromeDriver();
                 break;
             case "firefox":
-                System.setProperty("webdriver.firefox.driver", Config.getProperty("firefoxdriver"));
+                System.setProperty("webdriver.firefox.driver", Config.getConfigProperties("firefoxdriver"));
                 driver = new FirefoxDriver();
                 break;
             default:
