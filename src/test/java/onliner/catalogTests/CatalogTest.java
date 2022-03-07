@@ -9,16 +9,20 @@ import static onliner.pages.CatalogPage.*;
 
 public class CatalogTest extends BaseTest {
 
-    @Test
+
+    @Test(description = "Verifying that category tags have the right number of widgets")
     public void checkElectronicWidgets() {
         basePage.open(Config.getProperty("url"));
         homePage.clickToCatalog();
         catalogPage.clickElectronicaTab();
-        Assert.assertEquals(catalogPage.getWidgetCountEl(), 6, String.format("Incorrect number of widgets in '%s' tab", ELECTRONICA_TAB)); ;
+        int elWidgetCount = catalogPage.getWidgetCountEl();
+        int aplWidgetCount = catalogPage.getWidgetCountApl();
+        int foodWidgetCount = catalogPage.getWidgetCountFood();
+        Assert.assertEquals(elWidgetCount,6, String.format("Incorrect number of widgets in '%s' tab", ELECTRONICA_TAB)); ;
         catalogPage.clickAppliancesTab();
-        Assert.assertEquals(catalogPage.getWidgetCountApl(), 6, String.format("Incorrect number of widgets in '%s' tab", APPLIANCES_TAB)); ;
+        Assert.assertEquals(aplWidgetCount,6, String.format("Incorrect number of widgets in '%s' tab", APPLIANCES_TAB)); ;
         catalogPage.clickFoodTab();
-        Assert.assertEquals(catalogPage.getWidgetCountFood(), 8, String.format("Incorrect number of widgets in '%s' tab", FOOD_TAB)); ;
+        Assert.assertEquals(foodWidgetCount,6, String.format("Incorrect number of widgets in '%s' tab", FOOD_TAB)); ;
 
     }
 }

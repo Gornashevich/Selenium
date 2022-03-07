@@ -15,7 +15,7 @@ public class Config {
     static {
         try {
             fileInputStream = new FileInputStream("src/main/resources/config.properties");
-            fileInputStream = new FileInputStream("src/main/resources/data.properties");
+         //   fileInputStream = new FileInputStream("src/main/resources/data.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
 

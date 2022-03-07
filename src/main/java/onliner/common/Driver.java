@@ -12,7 +12,6 @@ import static onliner.constants.Constant.TimeConstant.IMPLICIT_WAIT;
 
 public class Driver {
 
-
     public static WebDriver createDriver() {
         WebDriver driver = null;
         switch (BROWSER) {
